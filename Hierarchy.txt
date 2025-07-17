@@ -1,0 +1,7 @@
+AWS Global Infrastructure
+└── Regions (e.g., ap-south-1)
+    └── Availability Zones (e.g., ap-south-1a, 1b, 1c)
+        └── Data Centers
+└── Edge Locations
+└── Local Zones (optional)
+└── Wavelength Zones (optional)
