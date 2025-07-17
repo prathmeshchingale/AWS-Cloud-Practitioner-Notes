@@ -5,3 +5,63 @@ AWS Global Infrastructure
 └── Edge Locations
 └── Local Zones (optional)
 └── Wavelength Zones (optional)
+
+
+===========================================================================================
+			More Detailed Structure
+===========================================================================================
+
+
+AWS GLOBAL INFRASTRUCTURE
+├── 1. Regions (Geographically separate areas)
+│   ├── Example: Asia Pacific (Mumbai) → ap-south-1
+│   ├── Example: US East (N. Virginia) → us-east-1
+│   ├── Characteristics:
+│   │   ├── Fully isolated from other regions
+│   │   └── Designed for compliance, redundancy, latency, and cost optimization
+│   └── Contains →
+│
+├──── 2. Availability Zones (AZs) (Physically isolated DCs within a region)
+│     ├── Example: ap-south-1a, ap-south-1b, ap-south-1c
+│     ├── Each AZ includes:
+│     │   ├── One or more Data Centers
+│     │   ├── Independent power, cooling, networking
+│     │   └── Connected to other AZs in region via high-speed, low-latency links
+│     └── Designed for fault isolation, high availability
+│
+├────── 3. Data Centers (Within each AZ)
+│       ├── Secure physical buildings with:
+│       │   ├── Servers (Compute)
+│       │   ├── Storage devices (like EBS, S3 backends)
+│       │   ├── Networking infrastructure
+│       │   └── Power, cooling, security systems
+│       └── Actual hardware where services like EC2, RDS, etc. run
+│
+├── 4. Edge Locations (Global CDN endpoints)
+│   ├── Used by:
+│   │   ├── Amazon CloudFront
+│   │   ├── Route 53
+│   │   └── AWS Global Accelerator
+│   ├── Purpose:
+│   │   └── Deliver content faster to end-users
+│   └── Present in 100s of cities across the world
+│
+├── 5. Regional Edge Caches (Intermediate CDN layers)
+│   ├── Positioned between Edge Locations and Origin
+│   └── Improve cache-hit ratio and performance
+│
+├── 6. Local Zones (Optional, proximity to end users)
+│   ├── Extend AWS services to metro cities
+│   ├── Use case: Low-latency applications (e.g., gaming, media)
+│   └── Example: Los Angeles, Chennai
+│
+├── 7. Wavelength Zones (Optional, 5G Integration)
+│   ├── Integrates AWS compute/storage with 5G networks of telecom partners
+│   ├── Designed for ultra-low latency (e.g., IoT, AR/VR)
+│   └── Used with AWS Wavelength service
+│
+└── 8. Outposts (Optional, on-premises AWS)
+    ├── Physical AWS hardware deployed at customer premises
+    ├── Brings AWS services to your on-prem data center
+    └── Use case: Hybrid environments (e.g., compliance-heavy sectors)
+
